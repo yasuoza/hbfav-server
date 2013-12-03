@@ -42,7 +42,7 @@
       this.created_at = prettyDate(item['dc:date']);
       this.user = new Timeline.User(item['dc:creator']);
       this.permalink = item['@']['rdf:about'];
-      this.category = item['dc:subject'];
+      this.categories = [].concat(item['dc:subject']);
       if (item['content:encoded']) {
         node = $(item['content:encoded']);
         this.description = node.find('p').text();

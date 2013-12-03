@@ -26,7 +26,7 @@ class Timeline.Bookmark
     @created_at  = prettyDate item['dc:date']
     @user        = new Timeline.User item['dc:creator']
     @permalink   = item['@']['rdf:about']
-    @category    = item['dc:subject']
+    @categories  = [].concat(item['dc:subject'])
 
     if item['content:encoded']
       node = $(item['content:encoded'])
